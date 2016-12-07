@@ -65,7 +65,7 @@ public class ElegibilidadeResources {
 			JSONObject newObject = (JSONObject) JSON.parse("{\"valor\":\"Calculado POST\"}");
 			JSONObject obj = (JSONObject) JSON.parse(valor);
 			JSONObject objRede = (JSONObject) JSON.parse(rede);
-			String newValue = newObject.get("valor").toString() + " : " + obj.get("data").toString() + objRede.get("rede").toString();
+			String newValue = newObject.get("valor").toString() + " : " + obj.get("data").toString() + " - " + objRede.get("rede").toString();
 			newObject = (JSONObject) JSON.parse("{\"valor\":\""+ newValue +"\"}");
 			retornoMetodo = newObject.toString();
 			statusRetorno = Status.OK;
