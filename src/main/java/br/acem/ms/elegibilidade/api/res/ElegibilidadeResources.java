@@ -66,7 +66,7 @@ public class ElegibilidadeResources {
 			JSONObject obj = (JSONObject) JSON.parse(valor);
 			JSONObject objRede = (JSONObject) JSON.parse(rede);
 			String newValue = newObject.get("valor").toString() + " : " + obj.get("data").toString() + objRede.get("rede").toString();
-                        newObject.replace("valor", newValue);
+ newObject.replace("valor", newValue);
 			retornoMetodo = newObject.toString();
 			statusRetorno = Status.OK;
 		} catch (IOException ioExc) {
