@@ -49,41 +49,4 @@ public class ElegibilidadeResources {
 				.build();
 	}
 
-	@SuppressWarnings("unchecked")
-	@POST
-	@Path("/validarElegibilidade")
-	@Produces(MediaType.APPLICATION_JSON)
-	@ApiOperation(value = "Valida Elegibilidade", notes = "Verifica se o paciente pode ser atendido ou nao - by POST")
-	@ApiResponses(value = { @ApiResponse(code = 200, message = "OK"),
-			@ApiResponse(code = 500, message = "Algo Errado") })
-	public Response validarElegibilidadePOST(
-			@FormParam(value = "Carteirinha") String valor,
-			@FormParam(value = "Rede")        String rede) {
-		StatusType statusRetorno = null;
-		String retornoMetodo = null;
-		try {
-			JSONObject newObject = (JSONObject) JSON.parse("{\"valor\":\"Calculado POST\"}");
-			JSONObject obj = (JSONObject) JSON.parse(valor);
-			JSONObject objRede = (JSONObject) JSON.parse(rede);
-			newObject.replace("valor", newObject.get("valor").toString() + " ==>> " + obj.get("data").toString() + objRede.get("rede").toString());
-			retornoMetodo = newObject.toString();
-			statusRetorno = Status.OK;
-		} catch (IOException ioExc) {
-			statusRetorno = Status.BAD_REQUEST;
-			retornoMetodo = "{" + this.RETURN_CODE_ERROR + "," + this.RETURN_MESS_ERROR + "}";
-		} catch (Exception genExc) {
-			statusRetorno = Status.BAD_REQUEST;
-			;
-			retornoMetodo = "{" + this.RETURN_CODE_ERROR + "," + this.RETURN_MESS_ERROR + "}";
-		}
-		return Response
-				// valor a ser retornado
-				.status(statusRetorno)
-				// objeto ou parametros transformados no tipo do produces
-				.entity(retornoMetodo)
-				// gerador do retorno
-				.build();
-
-	}
-
 }
