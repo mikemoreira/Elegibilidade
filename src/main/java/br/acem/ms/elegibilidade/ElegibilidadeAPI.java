@@ -12,7 +12,7 @@ import io.swagger.annotations.Info;
 import io.swagger.annotations.SwaggerDefinition;
 import io.swagger.annotations.Tag;
 
-/* Incluido PipeLine no Bluemix*/
+/* Incluido PipeLine no Bluemix - POM Ajustado, PipeLine OK*/
 
 @ApplicationPath("/")
 @SwaggerDefinition(info = @Info(title = "Elegibilidade API", version = "1.0", contact = @Contact(name = "Mike Moreira", email = "mikemoreira@gmail.com")), tags = {
