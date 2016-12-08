@@ -4,6 +4,8 @@ import static io.restassured.RestAssured.baseURI;
 import static io.restassured.RestAssured.get;
 import static org.hamcrest.Matchers.equalTo;
 
+import java.util.Map;
+
 import org.junit.Test;
 
 import com.ibm.json.java.JSON;
@@ -19,9 +21,14 @@ public class ElegibilidadeResourcesTest {
 		// Bluemix
 		RestAssured.baseURI = "http://elegibilidade.mybluemix.net";
 		try {
-			JSONObject vcap = (JSONObject) JSON.parse(System.getenv("VCAP_SERVICES"));
-
-			System.out.println("Hello from " + vcap.toString());
+			
+			 Map<String, String> env = System.getenv();
+			 if (env.containsKey("VCAP_SERVICES")) {
+				 JSONObject vcap = (JSONObject) JSON.parse(env.get("VCAP_SERVICES"));
+				 System.out.println("Hello from " + vcap.toString());
+			 } else{
+				 System.out.println("VCAP Não Encontrado!");
+			 }
 		} catch (Exception excEnv) {
 			System.out.println("VCAP Não Encontrado!");
 		}
