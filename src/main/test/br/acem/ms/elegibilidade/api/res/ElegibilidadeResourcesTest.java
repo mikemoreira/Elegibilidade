@@ -21,16 +21,20 @@ public class ElegibilidadeResourcesTest {
 		// Bluemix
 		RestAssured.baseURI = "http://elegibilidade.mybluemix.net";
 		try {
-			
-			 Map<String, String> env = System.getenv();
-			 if (env.containsKey("VCAP_SERVICES")) {
-				 JSONObject vcap = (JSONObject) JSON.parse(env.get("VCAP_SERVICES"));
-				 System.out.println("Hello from " + vcap.toString());
-			 } else{
-				 System.out.println("VCAP Não Encontrado!");
-			 }
+
+			Map<String, String> env = System.getenv();
+			// Print All Env Vars
+			for (String envName : env.keySet()) {
+				System.out.format("%s=%s%n", envName, env.get(envName));
+			}
+			if (env.containsKey("VCAP_SERVICES")) {
+				JSONObject vcap = (JSONObject) JSON.parse(env.get("VCAP_SERVICES"));
+				System.out.println("Hello from " + vcap.toString());
+			} else {
+				System.out.println("VCAP Não Encontrado!");
+			}
 		} catch (Exception excEnv) {
-			System.out.println("VCAP Não Encontrado!");
+			System.out.println("ERRO : VCAP Não Encontrado!");
 		}
 	}
 
