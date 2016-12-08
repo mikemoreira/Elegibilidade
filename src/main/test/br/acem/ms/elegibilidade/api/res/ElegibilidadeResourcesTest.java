@@ -8,30 +8,23 @@ import java.util.Map;
 
 import org.junit.Test;
 
-import com.ibm.json.java.JSON;
-import com.ibm.json.java.JSONObject;
-
 import io.restassured.RestAssured;
 
 public class ElegibilidadeResourcesTest {
 
 	public ElegibilidadeResourcesTest() {
-		// Local
-		// RestAssured.baseURI = "http://localhost:9080/elegibilidade";
-		// Bluemix
-		RestAssured.baseURI = "http://elegibilidade.mybluemix.net";
 		try {
-
 			Map<String, String> env = System.getenv();
-			// Print All Env Vars
-			for (String envName : env.keySet()) {
-				System.out.format("%s=%s%n", envName, env.get(envName));
-			}
-			if (env.containsKey("VCAP_SERVICES")) {
-				JSONObject vcap = (JSONObject) JSON.parse(env.get("VCAP_SERVICES"));
-				System.out.println("Hello from " + vcap.toString());
+			if (env.containsKey("MY_ENV")) {
+				String myEnv = env.get("MY_ENV");
+				System.out.println("MY_ENV : " + myEnv);
+				if (myEnv != null && myEnv.equals("local")) {
+					RestAssured.baseURI = "http://localhost:9080/elegibilidade";
+				} else {
+					RestAssured.baseURI = "http://elegibilidade.mybluemix.net";
+				}
 			} else {
-				System.out.println("VCAP Não Encontrado!");
+				System.out.println("Sem Variavel");
 			}
 		} catch (Exception excEnv) {
 			System.out.println("ERRO : VCAP Não Encontrado!");
