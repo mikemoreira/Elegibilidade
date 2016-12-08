@@ -37,9 +37,8 @@ public class ElegibilidadeResources {
 			@ApiResponse(code = 500, message = "Algo Errado") })
 	@ApiParam(value = "carteirinha", required = true)
 	public Response validarElegibilidadeGET(@PathParam(value = "carteirinha") String carteirinha) {
-		System.out.println(" Parametro : " + carteirinha);
 		StatusType statusRetorno = Response.Status.OK;
-		String retornoMetodo = "{\"valor\":\"Calculado GET\",\"beneficiario\":[" + carteirinha + "]}";
+		String retornoMetodo = "{\"valor\":\"Calculado GET\",\"beneficiario\":" + carteirinha + "}";
 		return Response
 				// valor a ser retornado
 				.status(statusRetorno)

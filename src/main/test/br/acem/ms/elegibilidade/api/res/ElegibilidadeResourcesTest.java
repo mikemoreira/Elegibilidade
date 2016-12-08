@@ -1,24 +1,36 @@
 package br.acem.ms.elegibilidade.api.res;
 
+import static io.restassured.RestAssured.given;
+import static io.restassured.RestAssured.*;
+import static io.restassured.matcher.RestAssuredMatchers.*;
+import static org.hamcrest.Matchers.*;
+
 import static org.junit.Assert.fail;
 
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
+
+import io.restassured.RestAssured;
 
 public class ElegibilidadeResourcesTest {
-
-	@Rule
-	public ExpectedException thrown = ExpectedException.none();
-
-	@Test(expected = AssertionError.class)
-	public void testValidarElegibilidadeGET() {
-		fail("Testando Método testValidarElegibilidadeGET");
+	
+	public ElegibilidadeResourcesTest(){
+		//Local
+		//RestAssured.baseURI =  "http://localhost:9080/elegibilidade";
+		//Bluemix 
+		RestAssured.baseURI =  "http://elegibilidade.mybluemix.net";
+		
+		System.out.println("Hello from " + System.getenv("VCAP_APP_HOST") + ":" + System.getenv("VCAP_APP_PORT"));
 	}
+	
 
-	@Test(expected = AssertionError.class)
-	public void testValidarElegibilidadePOST() {
-		fail("Testando Metodo testValidarElegibilidadePOST");
+	
+	@Test
+	public void testeSimples() {
+		System.out.println(baseURI);
+		get("/validarElegibilidade/123")
+		.then()
+			.statusCode(200)
+			.body("valor", equalTo("Calculado GET"));
+
 	}
-
 }

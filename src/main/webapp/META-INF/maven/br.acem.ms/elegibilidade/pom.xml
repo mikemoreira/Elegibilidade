@@ -35,6 +35,28 @@
 			<artifactId>com.ibm.websphere.appserver.api.json</artifactId>
 			<version>1.0.11</version>
 		</dependency>
+		<!-- Rest Validation -->
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+			<artifactId>rest-assured</artifactId>
+			<version>3.0.1</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+			<artifactId>json-path</artifactId>
+			<version>3.0.1</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<dependency>
+			<groupId>io.rest-assured</groupId>
+			<artifactId>json-schema-validator</artifactId>
+			<version>3.0.1</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- Rest Validation -->
 
 		<dependency>
 			<groupId>junit</groupId>
