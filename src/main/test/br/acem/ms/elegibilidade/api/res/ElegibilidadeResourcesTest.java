@@ -1,11 +1,10 @@
 package br.acem.ms.elegibilidade.api.res;
 
-import static io.restassured.RestAssured.given;
-import static io.restassured.RestAssured.*;
-import static io.restassured.matcher.RestAssuredMatchers.*;
-import static org.hamcrest.Matchers.*;
+import static io.restassured.RestAssured.baseURI;
+import static io.restassured.RestAssured.get;
+import static org.hamcrest.Matchers.equalTo;
 
-import static org.junit.Assert.fail;
+import java.util.Map;
 
 import org.junit.Test;
 
@@ -20,7 +19,11 @@ public class ElegibilidadeResourcesTest {
 		//Bluemix 
 		RestAssured.baseURI =  "http://elegibilidade.mybluemix.net";
 		
-		System.out.println("Hello from " + System.getenv("VCAP_APP_HOST") + ":" + System.getenv("VCAP_APP_PORT"));
+		Map env = System.getenv();
+		String host = (String)env.get("VCAP_APP_HOST");
+		String port = (String)env.get("VCAP_APP_PORT");
+		
+		System.out.println("Hello from " + host + ":" + port);
 	}
 	
 
