@@ -13,6 +13,7 @@ import io.restassured.RestAssured;
 
 public class ElegibilidadeResourcesTest {
 	
+	
 	public ElegibilidadeResourcesTest(){
 		//Local
 		//RestAssured.baseURI =  "http://localhost:9080/elegibilidade";
