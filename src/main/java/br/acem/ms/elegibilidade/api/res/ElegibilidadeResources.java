@@ -22,7 +22,7 @@ import io.swagger.annotations.ApiParam;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 
-@Path("/")
+@Path("/api")
 @Api("Validacao Elegibilidade")
 public class ElegibilidadeResources {
 

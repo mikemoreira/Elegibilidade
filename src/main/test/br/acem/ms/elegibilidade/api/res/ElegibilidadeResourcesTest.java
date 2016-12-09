@@ -19,9 +19,9 @@ public class ElegibilidadeResourcesTest {
 				String myEnv = env.get("MY_ENV");
 				System.out.println("MY_ENV : " + myEnv);
 				if (myEnv != null && myEnv.equals("local")) {
-					RestAssured.baseURI = "http://localhost:9080/elegibilidade";
+					RestAssured.baseURI = "http://localhost:9080/elegibilidade/api";
 				} else {
-					RestAssured.baseURI = "http://elegibilidade.mybluemix.net";
+					RestAssured.baseURI = "http://elegibilidade.mybluemix.net/api";
 				}
 			} else {
 				System.out.println("Sem Variavel");
