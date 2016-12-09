@@ -82,6 +82,7 @@
 		<testSourceDirectory>src/main/test</testSourceDirectory>
 		<finalName>${project.name}</finalName>
 		<plugins>
+			<!-- Generate Swagger.json File -->
 			<plugin>
 				<groupId>com.sebastian-daschner</groupId>
 				<artifactId>jaxrs-analyzer-maven-plugin</artifactId>
@@ -98,11 +99,18 @@
 					</execution>
 				</executions>
 			</plugin>
+			<!-- Generate Swagger.json File -->
 			<plugin>
 				<artifactId>maven-war-plugin</artifactId>
 				<version>2.1.1</version>
 				<configuration>
 					<failOnMissingWebXml>false</failOnMissingWebXml>
+
+					<webResources>
+						<resource>
+							<directory>${project.build.directory}/jaxrs-analyzer</directory>
+						</resource>
+					</webResources>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -152,4 +160,7 @@
 			</plugins>
 		</pluginManagement>
 	</build>
+	<reporting>
+		<outputDirectory>${project.build.directory}/site</outputDirectory>
+	</reporting>
 </project>
