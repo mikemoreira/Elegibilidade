@@ -105,7 +105,6 @@
 				<version>2.1.1</version>
 				<configuration>
 					<failOnMissingWebXml>false</failOnMissingWebXml>
-
 					<webResources>
 						<resource>
 							<directory>${project.build.directory}/jaxrs-analyzer</directory>
