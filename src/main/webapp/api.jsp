@@ -11,10 +11,16 @@
 <%
 try {
 	FileInputStream fstream = new FileInputStream(application.getRealPath("/WEB-INF/swagger.json"));
-	out.println(fstream);
+	out.println("/WEB-INF/swagger.json" + fstream);
 
-} catch (Exception e){
-	out.println("Error : " + e.getMessage());
+} catch (Exception e1){
+	out.println("Error1 : " + e1.getMessage());
+	try {
+	FileInputStream fstream = new FileInputStream(application.getRealPath("swagger.json"));
+	out.println("/swagger.json" + fstream);
+	} catch (Exception e2){
+		out.println("Error2 : " + e2.getMessage());
+	}
 
 }
  %>
