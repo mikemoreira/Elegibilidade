@@ -78,6 +78,12 @@
 	</dependencies>
 
 	<build>
+		<resources>
+			<resource>
+				<directory>${project.build.directory}/jaxrs-analyzer</directory>
+				<targetPath>${project.build.directory}/${project.build.finalName}</targetPath>
+			</resource>
+		</resources>
 		<sourceDirectory>src/main/java</sourceDirectory>
 		<testSourceDirectory>src/main/test</testSourceDirectory>
 		<finalName>${project.name}</finalName>
@@ -105,11 +111,6 @@
 				<version>2.1.1</version>
 				<configuration>
 					<failOnMissingWebXml>false</failOnMissingWebXml>
-					<webResources>
-						<resource>
-							<directory>${project.build.directory}/jaxrs-analyzer</directory>
-						</resource>
-					</webResources>
 				</configuration>
 			</plugin>
 			<plugin>
