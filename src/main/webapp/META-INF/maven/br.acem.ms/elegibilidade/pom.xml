@@ -81,7 +81,7 @@
 		<resources>
 			<resource>
 				<directory>${project.build.directory}/jaxrs-analyzer</directory>
-				<targetPath>${project.build.directory}/${project.build.finalName}</targetPath>
+				<targetPath>${project.build.directory}/${project.build.finalName}/WEB-INF</targetPath>
 			</resource>
 		</resources>
 
