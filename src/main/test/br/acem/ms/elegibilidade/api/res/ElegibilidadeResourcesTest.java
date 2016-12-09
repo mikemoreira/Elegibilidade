@@ -34,7 +34,10 @@ public class ElegibilidadeResourcesTest {
 	@Test
 	public void testeSimples() {
 		System.out.println(baseURI);
-		get("/validarElegibilidade/123").then().statusCode(200).body("valor", equalTo("Calculado GET"));
+		get("/validarElegibilidade/123")
+		.then()
+			.statusCode(200)
+			.body("valor", equalTo("Calculado GET"));
 
 	}
 }
